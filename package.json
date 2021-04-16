@@ -1,6 +1,6 @@
 {
   "name": "teledotjs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Telegram MTProto API Client Wrapper Framework in Javascript ",
   "main": "lib/index.js",
   "scripts": {
