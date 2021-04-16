@@ -1,7 +1,7 @@
 {
   "name": "tele.js",
   "version": "0.0.0",
-  "description": "Telegram MTProto API Client Library and Framework in Javascript",
+  "description": "Telegram MTProto API Client Wrapper Framework in Javascript ",
   "main": "lib/index.js",
   "scripts": {
     "build": "rimraf ./lib && tsc",
