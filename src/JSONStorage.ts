@@ -20,7 +20,7 @@ export default class JSONStorage {
 
   async getItem(key: string): Promise<string | null> {
     this.data = JSON.parse(readFileSync(this.path, 'utf-8'));
-    return this.data[key] ? this.data[key] : null;
+    return this.data[key] ? <string>this.data[key] : null;
   }
 
   async setItem(key: string, value: string): Promise<void> {
