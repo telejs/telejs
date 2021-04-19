@@ -1,5 +1,5 @@
 import Method from './Method';
-import readlineSync from 'readline-sync';
+import * as readlineSync from 'readline-sync';
 import { Difference, DifferenceEmpty, NearestDc } from './types';
 import { promisify } from 'util';
 import { logger } from './util';
@@ -64,7 +64,7 @@ export default class Client extends Method {
 
   private async getUpdate(timeOut?: number) {
     this.loop = true;
-    let state = await this.getState();
+    const state = await this.getState();
     do {
       try {
         console.log(state);
