@@ -7,10 +7,9 @@ import { logger } from './util';
 export default class Base {
   private storage: MyAsyncLocalStorage;
   private proto: MTProto;
-  protected events: Record<string, unknown>;
   protected options: { dcId?: number; syncAuth?: boolean };
 
-  constructor(apiHash: string, apiId: string) {
+  constructor(apiHash: string | undefined, apiId: string | undefined) {
     this.storage = new JSONStorage('data/storage');
     if (!apiHash) throw new Error('Please provide api_hash');
     if (!apiId) throw new Error('Please provide api_id');
@@ -25,10 +24,9 @@ export default class Base {
       device_model: constant.APP_NAME,
     });
     this.options = {};
-    this.events = {};
   }
 
-  public async callApi(
+  protected async callApi(
     method: string,
     params?: object,
     options?: object
@@ -41,9 +39,9 @@ export default class Base {
       logger('Error calling api');
       logger(err);
       if (err.error_message == 'AUTH_KEY_UNREGISTERED') {
-        return Promise.resolve('AUTH_KEY_UNREGISTERED');
+        return Promise.reject({ code: 'AUTH_KEY_UNREGISTERED' });
       } else if (err.error_message == 'API_ID_INVALID') {
-        return Promise.reject('API_ID_INVALID');
+        return Promise.reject({ code: 'API_ID_INVALID' });
       } else {
         return Promise.reject(err);
       }
