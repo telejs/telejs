@@ -8,38 +8,25 @@ export interface State {
   unread_count: number;
 }
 
-// export interface Difference {
-//   _: 'updates.difference';
-//   chats: [];
-//   users: User[];
-//   state: State;
-// }
-
 export interface Message {
   _: 'message';
-  flags: number;
-  out: boolean;
-  mentioned: boolean;
-  media_unread: boolean;
-  silent: boolean;
-  post: boolean;
-  from_scheduled: boolean;
-  legacy: boolean;
-  edit_hide: boolean;
-  pinned: boolean;
-  id: number;
-  from_id: object[];
-  peer_id: object[];
-  date: number;
+  flags?: number;
+  out?: boolean;
+  mentioned?: boolean;
+  media_unread?: boolean;
+  silent?: boolean;
+  post?: boolean;
+  from_scheduled?: boolean;
+  legacy?: boolean;
+  edit_hide?: boolean;
+  pinned?: boolean;
+  id?: number;
+  from_id?: object[];
+  peer_id?: object[];
+  date?: number;
   message: string;
-  reply_markup: object[];
-  entities: [[]];
-}
-
-export interface UpdateMessageID {
-  _: 'updateMessageID';
-  id: number;
-  random_id: string;
+  reply_markup?: object[];
+  entities?: [[]];
 }
 
 export interface UpdateReadHistoryInbox {
@@ -60,26 +47,102 @@ export interface UpdateReadHistoryOutbox {
   pts_count: number;
 }
 
+export type updates = Difference | DifferenceEmpty;
 export interface Difference {
   _: 'updates.difference';
-  new_messages: Message[];
-  new_encrypted_messages: [];
-  other_updates:
+  new_messages?: Message[];
+  new_encrypted_messages?: [];
+  other_updates?:
     | UpdateMessageID[]
     | UpdateReadHistoryInbox[]
     | UpdateReadHistoryOutbox[];
 
-  chats: [];
-  users: User[];
+  chats?: [];
+  users?: User[];
   state: State;
 }
 
 export interface DifferenceEmpty {
   _: 'updates.differenceEmpty';
-  date: number;
-  seq: number;
+  date?: number;
+  seq?: number;
 }
 
+export interface DifferenceSlice {
+  _: 'updates.differenceSlice';
+  new_messages?: Message[];
+  new_encrypted_messages?: [];
+  other_updates?: Update[];
+  chats?: [];
+  users?: User[];
+  intermediate_state: State;
+}
+
+// _-_-_-_-_-_-_- Update section
+
+export type Update =
+  | UpdateNeMessage
+  | UpdateMessageID
+  | UpdateDeleteMessage
+  | UpdateUserTyping
+  | UpdateChatUserTyping
+  | UpdateChatParticipants
+  | UpdateUserStatus
+  | UpdateUserName
+  | UpdateUserPhoto;
+
+export interface UpdateNeMessage {
+  message?: Message;
+  pts?: number;
+  pts_count?: number;
+}
+export interface UpdateMessageID {
+  _: 'updateMessageID';
+  id?: number;
+  random_id: string;
+}
+
+export interface UpdateDeleteMessage {
+  messages?: Array<number>;
+  pts?: number;
+  pts_count?: number;
+}
+
+export interface UpdateUserTyping {
+  user_id?: number;
+  action?: string;
+}
+
+export interface UpdateChatUserTyping {
+  chat_id?: string;
+  user_id?: number;
+  action?: string;
+}
+
+export interface UpdateChatParticipants {
+  participants?: string;
+}
+
+export interface UpdateUserStatus {
+  user_id?: number;
+  status?: string;
+}
+
+export interface UpdateUserName {
+  user_id?: number;
+  first_name?: string;
+  last_name?: string;
+  username: string;
+}
+
+export interface UpdateUserPhoto {
+  user_id?: number;
+  date?: number;
+  photo: [];
+  previus: boolean;
+}
+
+// _-_-_-_-_-_-_- End Update section
 export interface NearestDc {
   nearest_dc: number;
 }
@@ -210,3 +273,37 @@ export interface UserFull {
   notify_settings: PeerNotifySettings;
   common_chats_count: 0;
 }
+
+export type MessageEvent =
+  | '*'
+  | 'text'
+  | 'audio'
+  | 'voice'
+  | 'document'
+  | 'photo'
+  | 'sticker'
+  | 'video'
+  | 'videoNote'
+  | 'animation'
+  | 'contact'
+  | 'location'
+  | 'venue'
+  | 'game'
+  | 'invoice'
+  | 'edit'
+  | 'forward'
+  | 'pinnedMessage'
+  | 'newChatMembers'
+  | 'leftChatMember'
+  | 'newChatTitle'
+  | 'newChatPhoto'
+  | 'deleteChatPhoto'
+  | 'groupChatCreated'
+  | 'channelChatCreated'
+  | 'supergroupChatCreated'
+  | 'migrateToChat'
+  | 'migrateFromChat'
+  | 'successfulPayment'
+  | 'passportData';
+
+export type Events = 'update' | 'message' | 'login';
