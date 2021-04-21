@@ -1,7 +1,10 @@
-node_modules
+# ignore
+/node_modules
+/examples/data
 .vscode
 .env
 
 # exclude build
 /lib
 /typings
+/test
