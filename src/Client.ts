@@ -1,73 +1,96 @@
 import Method from './Method';
 import * as readlineSync from 'readline-sync';
-import { Difference, DifferenceEmpty, NearestDc } from './types';
+import { Difference, Events, NearestDc, updates } from './types';
 import { promisify } from 'util';
 import { logger } from './util';
 const wait = promisify(setTimeout);
 
 export default class Client extends Method {
-  error: any;
-  catchCb: any;
-  loop: boolean;
-  constructor(apiId: string, apiHash: string) {
+  private loop: boolean;
+  private events: Map<string, Function>;
+  protected update: updates;
+  private loginTimeOut: NodeJS.Timeout;
+  constructor(apiId: string | undefined, apiHash: string | undefined) {
     super(apiId, apiHash);
     this.loop = false;
+    this.events = new Map();
+    this.update = { _: 'updates.differenceEmpty' };
+    this.loginTimeOut = setTimeout(() => {
+      console.log('connection to dc timeout');
+      process.exit();
+    }, 30000);
   }
 
   public async catch(callback: any): Promise<void> {
-    this.catchCb = callback;
+    this.events.set('error', callback);
   }
 
-  // TODO: make on handler
-  public async on(filters: any, callback: any) {
-    this.events = { filters, callback };
-  }
-
-  public async start(timeOut: number): Promise<void> {
-    try {
-      const dcData = <NearestDc>await this.callApi('help.getNearestDc');
-      // console.log(dcData);
-      this.options = { dcId: dcData.nearest_dc };
-      const user = await this.getFullUser();
-      // console.log(user);
-      if (!user) {
-        const phoneNumber = readlineSync.questionInt('Your phone number : ');
-        const { phone_code_hash } = await this.sendCode(phoneNumber);
-        const phoneCode = readlineSync.questionInt('Your Code : ');
-        const authResult = await this.signIn(
-          phoneNumber,
-          phone_code_hash,
-          phoneCode
-        );
-        console.log(
-          `Login as ${authResult.user.username} ${
-            authResult.user?.last_name ? authResult.user.last_name : ''
-          } ${authResult.user.username ? '@' + authResult.user.username : ''}`
-        );
-        // this.getFullUser().then((res) => console.log(res));
-      }
-      this.getUpdate(timeOut);
-    } catch (err) {
-      if (err == 'API_ID_INVALID') {
-        throw new Error('API_ID_INVALID');
-      } else {
-        this.catchCb(err);
+  public async on(
+    events: Events | Array<Events>,
+    callback: (update: any) => void
+  ): Promise<void> {
+    if (!Array.isArray(events)) {
+      events = [events];
+    }
+    for (const event of events) {
+      if (!this.events.has(event)) {
+        this.events.set(event, callback);
       }
     }
   }
 
-  private async handleDiffence(
-    difference: Difference | DifferenceEmpty
-  ): Promise<void> {
-    console.log(difference._);
+  protected async event(eventName: string, ...data: any): Promise<void> {
+    const callback = this.events.has(eventName)
+      ? this.events.get(eventName)
+      : () => {};
+    callback?.apply(null, data);
   }
 
-  private async getUpdate(timeOut?: number) {
+  protected async login(): Promise<void> {
+    const phoneNumber = readlineSync.questionInt('Your phone number : ');
+    const { phone_code_hash } = await this.sendCode(phoneNumber);
+    const phoneCode = readlineSync.questionInt('Your Code : ');
+    const authResult = await this.signIn(
+      phoneNumber,
+      phone_code_hash,
+      phoneCode
+    );
+    this.event('login', authResult);
+  }
+
+  public async start(): Promise<void> {
+    logger('Starting');
+    const dcData = <NearestDc>await this.callApi('help.getNearestDc');
+    logger(`Nearest dc ${dcData.nearest_dc}`);
+    this.options = { dcId: dcData.nearest_dc };
+    try {
+      const user = await this.getFullUser();
+      this.event('login', user);
+    } catch (err) {
+      if (err.code == 'API_ID_INVALID') {
+        throw new Error(err);
+      } else if (err.code == 'AUTH_KEY_UNREGISTERED') {
+        await this.login();
+      } else {
+        logger(err);
+        this.event('error', err);
+      }
+    }
+    clearTimeout(this.loginTimeOut);
+    this.getUpdate();
+  }
+
+  private async handleDiffence(difference: Difference): Promise<void> {
+    logger(difference._);
+    this.event('update', difference);
+    this.update = difference;
+  }
+
+  private async getUpdate() {
     this.loop = true;
     const state = await this.getState();
     do {
       try {
-        console.log(state);
         const result = await this.getDifference(state);
         if (result._ != 'updates.differenceEmpty') {
           state.seq = result.state.seq;
@@ -75,11 +98,11 @@ export default class Client extends Method {
           state.pts = result.state.pts;
           this.handleDiffence(result);
         }
-        console.log(result);
       } catch (err) {
         logger(err);
+        this.loop = false;
       }
-      await wait(timeOut || 100);
+      await wait(100);
     } while (this.loop);
   }
 }
