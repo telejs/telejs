@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/telejs/telejs#readme",
   "exports": {
-    "import": "./src/",
-    "require": "./lib/"
+    "import": "./src/index.ts",
+    "require": "./lib/index.js"
   },
   "engines": {
     "node": ">= 12.0.0"
@@ -47,6 +47,7 @@
   "types": "./typings/index.d.ts",
   "dependencies": {
     "@mtproto/core": "^5.3.0",
+    "dotenv": "^8.2.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
@@ -54,7 +55,6 @@
     "@types/readline-sync": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "dotenv": "^8.2.0",
     "eslint": "^7.24.0",
     "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
