@@ -1,1 +1,1 @@
-export default { VERSION: '0.0.0', APP_NAME: 'Tele.js' };
+export default { VERSION: 'v0.2.0', APP_NAME: 'Tele.js' };
