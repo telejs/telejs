@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { mkdirSync } from 'fs';
+import { mkdirSync, existsSync } from 'fs';
 import { dirname, resolve } from 'path';
 
 export default class JSONStorage {
@@ -7,9 +7,11 @@ export default class JSONStorage {
   private data: Record<string, string>;
   private dirname: string;
   constructor(path: string) {
-    this.path = path ? path : './data.json';
+    this.path = path ? resolve(path) : './data.json';
     this.dirname = dirname(resolve(this.path));
-    mkdirSync(this.dirname, { recursive: true });
+    if (!existsSync(this.path)) {
+      mkdirSync(this.dirname, { recursive: true });
+    }
     try {
       this.data = JSON.parse(readFileSync(this.path, 'utf-8'));
     } catch (e) {
