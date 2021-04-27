@@ -64,14 +64,27 @@ export default class Client extends Method {
 
   protected async login(loginType?: string): Promise<void> {
     let authResult;
-    if (!loginType) {
-      const phoneNumber = readlineSync.questionInt('Your phone number : ');
+    if (!loginType || loginType == 'retry') {
+      const phoneNumber = readlineSync.questionInt('Your phone number : ', {
+        cancel: true,
+      });
       const { phone_code_hash } = await this.sendCode(phoneNumber);
-      const phoneCode = readlineSync.questionInt('Your Code : ');
-      authResult = await this.signIn(phoneNumber, phone_code_hash, phoneCode);
+      const phoneCode = readlineSync.questionInt('Your Code : ', {
+        cancel: true,
+      });
+      try {
+        authResult = await this.signIn(phoneNumber, phone_code_hash, phoneCode);
+        this.event('login', authResult);
+      } catch (err) {
+        if (err.error_message == 'SESSION_PASSWORD_NEEDED')
+          return this.login('2fa');
+        console.log(err.error_message, 'Retrying');
+        if (err) return this.login('retry');
+      }
     } else if (loginType == '2fa') {
       const password = readlineSync.questionNewPassword(
-        'Your password account : '
+        'Your password account : ',
+        { cancel: true }
       );
       const { srp_id, current_algo, srp_B } = await this.getPassword();
       const { A, M1 } = await getSRPParams({
@@ -83,8 +96,8 @@ export default class Client extends Method {
         password: password,
       });
       authResult = await this.checkPassword({ srp_id, A, M1 });
+      this.event('login', authResult);
     }
-    this.event('login', authResult);
   }
 
   public async start(): Promise<void> {

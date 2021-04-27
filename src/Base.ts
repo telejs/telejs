@@ -9,7 +9,7 @@ export default class Base {
   private proto: MTProto;
   public options: { dcId?: number; syncAuth?: boolean };
 
-  constructor(apiHash: string | undefined, apiId: string | undefined) {
+  constructor(apiId: string | undefined, apiHash: string | undefined) {
     this.storage = new JSONStorage('data/storage');
     if (!apiHash) throw new Error('Please provide api_hash');
     if (!apiId) throw new Error('Please provide api_id');
