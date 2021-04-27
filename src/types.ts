@@ -147,12 +147,12 @@ export interface UpdateNewChannelMessage {
 
 export type Message = messageEmpty | message | messageService;
 
-export type messageEmpty = {
+export interface messageEmpty {
   _: 'messageEmpty';
   id: number;
-};
+}
 
-export type message = {
+export interface message {
   _: 'message';
   flags: number;
   out?: boolean;
@@ -182,9 +182,9 @@ export type message = {
   post_author?: string;
   grouped_id?: string;
   retriction_reason?: [];
-};
+}
 
-export type messageService = {
+export interface messageService {
   _: 'messageService';
   flags?: number;
   out?: boolean;
@@ -199,7 +199,7 @@ export type messageService = {
   reply_to?: object;
   date: number;
   action: object;
-};
+}
 
 // _-_-_-_-_-_-_- Chat section
 export type ChatEmpty = {
@@ -412,11 +412,24 @@ export type InputPeer =
 // | inputPeerUserFromMessage
 // | inputPeerChannelFromMessage;
 
-export type inputPeerEmpty = { _: 'inputPeerEmpty' };
-export type inputPeerSelf = { _: 'inputPeerSelf' };
-export type inputPeerChat = { _: 'inputPeerChat'; chat_id: number };
-export type inputPeerUser = { _: 'inputPeerUser'; user_id: number };
-export type inputPeerChannel = { _: 'inputPeerChannel'; channel_id: number };
+export interface inputPeerEmpty {
+  _: 'inputPeerEmpty';
+}
+export interface inputPeerSelf {
+  _: 'inputPeerSelf';
+}
+export interface inputPeerChat {
+  _: 'inputPeerChat';
+  chat_id: number;
+}
+export interface inputPeerUser {
+  _: 'inputPeerUser';
+  user_id: number;
+}
+export interface inputPeerChannel {
+  _: 'inputPeerChannel';
+  channel_id: number;
+}
 interface PeerSettings {
   _: 'peerSettings';
   flags: number;
@@ -467,6 +480,36 @@ export interface UserFull {
   notify_settings: PeerNotifySettings;
   common_chats_count: 0;
 }
+
+// _-_-_-_-_-_-_- Crypto
+
+export interface password {
+  _: 'account.password';
+  flags: number;
+  has_recovery: boolean;
+  has_secure_values: boolean;
+  has_password: boolean;
+  current_algo: algo;
+  srp_B: Uint8Array;
+  srp_id: string;
+  new_algo: algo;
+  new_secure_algo: secureAlgo;
+  secure_random: Uint8Array;
+}
+interface algo {
+  // _: 'passwordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow',
+  salt1: Uint8Array;
+  salt2: Uint8Array;
+  g: number;
+  p: Uint8Array;
+}
+
+interface secureAlgo {
+  // _: 'securePasswordKdfAlgoPBKDF2HMACSHA512iter100000',
+  salt: Uint8Array;
+}
+
+// _-_-_-_-_-_-_-
 
 export type MessageEvent =
   | '*'

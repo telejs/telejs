@@ -1,24 +1,24 @@
-import Method from './Method';
-import * as readlineSync from 'readline-sync';
-import { Difference, Events, NearestDc, updates } from './types';
 import { promisify } from 'util';
+import * as readlineSync from 'readline-sync';
+import { getSRPParams } from '@mtproto/core';
+import { Difference, Events, NearestDc, updates } from './types';
+import Method from './Method';
 import { logger } from './util';
 const wait = promisify(setTimeout);
 
 export default class Client extends Method {
   private loop: boolean;
   private events: Map<string, Function>;
-  protected update: updates;
-  private loginTimeOut: NodeJS.Timeout;
+  protected update!: updates;
+  // private loginTimeOut: NodeJS.Timeout;
   constructor(apiId: string | undefined, apiHash: string | undefined) {
     super(apiId, apiHash);
     this.loop = false;
     this.events = new Map();
-    this.update = { _: 'updates.differenceEmpty' };
-    this.loginTimeOut = setTimeout(() => {
-      console.log('connection to dc timeout');
-      process.exit();
-    }, 30000);
+    // this.loginTimeOut = setTimeout(() => {
+    //   console.log('login timeout');
+    //   process.exit();
+    // }, 30000);
   }
 
   public async catch(callback: any): Promise<void> {
@@ -39,6 +39,22 @@ export default class Client extends Method {
     }
   }
 
+  // TODO: make onMessage
+  // public async onMessage(
+  //   types: MessageEvent | MessageEvent[],
+  //   cb: (message: Update) => void
+  // ) {
+  //   if (!Array.isArray(types)) {
+  //     types = [types];
+  //   }
+  //   for (const type of types) {
+  //     const eventName = `message_${type}`;
+  //     if (!this.events.has(eventName)) {
+  //       this.events.set(eventName, cb);
+  //     }
+  //   }
+  // }
+
   protected async event(eventName: string, ...data: any): Promise<void> {
     const callback = this.events.has(eventName)
       ? this.events.get(eventName)
@@ -46,15 +62,28 @@ export default class Client extends Method {
     callback?.apply(null, data);
   }
 
-  protected async login(): Promise<void> {
-    const phoneNumber = readlineSync.questionInt('Your phone number : ');
-    const { phone_code_hash } = await this.sendCode(phoneNumber);
-    const phoneCode = readlineSync.questionInt('Your Code : ');
-    const authResult = await this.signIn(
-      phoneNumber,
-      phone_code_hash,
-      phoneCode
-    );
+  protected async login(loginType?: string): Promise<void> {
+    let authResult;
+    if (!loginType) {
+      const phoneNumber = readlineSync.questionInt('Your phone number : ');
+      const { phone_code_hash } = await this.sendCode(phoneNumber);
+      const phoneCode = readlineSync.questionInt('Your Code : ');
+      authResult = await this.signIn(phoneNumber, phone_code_hash, phoneCode);
+    } else if (loginType == '2fa') {
+      const password = readlineSync.questionNewPassword(
+        'Your password account : '
+      );
+      const { srp_id, current_algo, srp_B } = await this.getPassword();
+      const { A, M1 } = await getSRPParams({
+        g: current_algo.g,
+        gB: srp_B,
+        p: current_algo.p,
+        salt1: current_algo.salt1,
+        salt2: current_algo.salt2,
+        password: password,
+      });
+      authResult = await this.checkPassword({ srp_id, A, M1 });
+    }
     this.event('login', authResult);
   }
 
@@ -67,16 +96,23 @@ export default class Client extends Method {
       const user = await this.getFullUser();
       this.event('login', user);
     } catch (err) {
-      if (err.code == 'API_ID_INVALID') {
-        throw new Error(err);
-      } else if (err.code == 'AUTH_KEY_UNREGISTERED') {
-        await this.login();
-      } else {
-        logger(err);
-        this.event('error', err);
+      switch (err.error_message) {
+        case 'API_ID_INVALID':
+          throw new Error(err);
+          break;
+        case 'AUTH_KEY_UNREGISTERED':
+          await this.login();
+          break;
+        case 'SESSION_PASSWORD_NEEDED':
+          await this.login('2fa');
+          break;
+        default:
+          logger(err);
+          this.event('error', err);
+          break;
       }
     }
-    clearTimeout(this.loginTimeOut);
+    // clearTimeout(this.loginTimeOut);
     this.getUpdate();
   }
 
