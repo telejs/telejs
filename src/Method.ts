@@ -4,6 +4,7 @@ import {
   AuthResult,
   Difference,
   DifferenceEmpty,
+  password,
   PhoneCode,
   State,
   UserFull,
@@ -60,5 +61,19 @@ export default class Method extends Base {
     } else {
       return <Difference>differ;
     }
+  }
+
+  public async getPassword(): Promise<password> {
+    return await this.callApi('account.getPassword');
+  }
+
+  public async checkPassword(inputCheckPasswordSRP: {
+    srp_id: string;
+    A: Uint8Array;
+    M1: Uint8Array;
+  }) {
+    return this.callApi('auth.checkPassword', {
+      password: { _: 'inputCheckPasswordSRP', ...inputCheckPasswordSRP },
+    });
   }
 }
