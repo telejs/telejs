@@ -487,7 +487,7 @@ export interface inputMediaUploadedDocument {
   force_file?: boolean;
   file: InputFile;
   thumb?: InputFile;
-  mime_type?: string;
+  mime_type: string;
   attributes: DocumentAttribute[];
   stickers?: InputDocument[];
   ttl_seconds?: number;
@@ -502,9 +502,9 @@ export interface inputMediaVenue {
   geo_point: InputGeoPoint;
   title: string;
   address: string;
-  provider: string;
-  venue_id: string;
-  venue_type: string;
+  provider?: string;
+  venue_id?: string;
+  venue_type?: string;
 }
 export interface inputMediaPhotoExternal {
   _: 'inputMediaPhotoExternal';
@@ -585,10 +585,10 @@ export interface inputPhoto {
 // Defines a GeoPoint.
 export type InputGeoPoint = inputGeoPointEmpty | inputGeoPoint;
 export interface inputGeoPointEmpty {
-  _: 'inputPhotoEmpty';
+  _: 'inputGeoPointEmpty';
 }
 export interface inputGeoPoint {
-  _: 'inputPhoto';
+  _: 'inputGeoPoint';
   lat: number;
   long: number;
   accuracy_radius?: number;
@@ -674,7 +674,14 @@ export interface inputWebDocument {
 
 // _-_-_-_-_-_-_- DocumentAttribute
 // Various possible attributes of a document (used to define if it's a sticker, a GIF, a video, a mask sticker, an image, an audio, and so on)
-export type DocumentAttribute = documentAttributeImageSize;
+export type DocumentAttribute =
+  | documentAttributeImageSize
+  | documentAttributeAnimated
+  | documentAttributeSticker
+  | documentAttributeVideo
+  | documentAttributeAudio
+  | documentAttributeFilename
+  | documentAttributeHasStickers;
 export interface documentAttributeImageSize {
   _: 'documentAttributeImageSize';
   w: number;
@@ -691,6 +698,7 @@ export interface documentAttributeSticker {
   mask_coords?: MaskCoords;
 }
 export interface documentAttributeVideo {
+  _: 'documentAttributeVideo';
   round_message?: boolean;
   supports_streaming?: boolean;
   duration: number;
@@ -1025,4 +1033,4 @@ export type MessageEvent =
   | 'successfulPayment'
   | 'passportData';
 
-export type Events = 'update' | 'message' | 'login';
+export type Events = 'updates' | 'message' | 'login';
