@@ -397,9 +397,13 @@ export type User = {
 
 export type Peer = peerUser | peerChat | peerChannel;
 
-export type peerUser = { _: 'peerUser'; user_id: number };
-export type peerChat = { _: 'peerChat'; chat_id: number };
-export type peerChannel = { _: 'peerChannel'; channel_id: number };
+export type peerUser = { _: 'peerUser'; user_id: number; access_hash: string };
+export type peerChat = { _: 'peerChat'; chat_id: number; access_hash: string };
+export type peerChannel = {
+  _: 'peerChannel';
+  channel_id: number;
+  access_hash: string;
+};
 
 // _-_-_-_-_-_-_- InputPeer
 // Peer
@@ -425,11 +429,496 @@ export interface inputPeerChat {
 export interface inputPeerUser {
   _: 'inputPeerUser';
   user_id: number;
+  access_hash: string;
 }
 export interface inputPeerChannel {
-  _: 'inputPeerChannel';
+  _: 'inputPeerChannel' | string;
   channel_id: number;
+  access_hash: string;
 }
+
+// _-_-_-_-_-_-_- InputMedia
+// Defines media content of a message
+export type InputMedia =
+  | inputMediaEmpty
+  | inputMediaUploadedPhoto
+  | inputMediaPhoto
+  | inputMediaGeoPoint
+  | inputMediaContact
+  | inputMediaUploadedDocument
+  | inputMediaDocument
+  | inputMediaVenue
+  | inputMediaPhotoExternal
+  | inputMediaDocumentExternal
+  | inputMediaGame
+  | inputMediaInvoice
+  | inputMediaGeoLive
+  | inputMediaPoll
+  | inputMediaDice;
+
+export interface inputMediaEmpty {
+  _: 'inputMediaEmpty';
+}
+export interface inputMediaUploadedPhoto {
+  _: 'inputMediaUploadedPhoto';
+  file: InputFile;
+  stickers?: InputDocument[];
+  ttl_seconds?: number;
+}
+export interface inputMediaPhoto {
+  _: 'inputMediaPhoto';
+  id: InputPhoto;
+  ttl_seconds?: number;
+}
+export interface inputMediaGeoPoint {
+  _: 'inputMediaGeoPoint';
+  geo_point: InputGeoPoint;
+}
+export interface inputMediaContact {
+  _: 'inputMediaContact';
+  phone_number: string;
+  first_name: string;
+  last_name: string;
+  vcard: string;
+}
+export interface inputMediaUploadedDocument {
+  _: 'inputMediaUploadedDocument';
+  nosound_video?: boolean;
+  force_file?: boolean;
+  file: InputFile;
+  thumb?: InputFile;
+  mime_type: string;
+  attributes: DocumentAttribute[];
+  stickers?: InputDocument[];
+  ttl_seconds?: number;
+}
+export interface inputMediaDocument {
+  _: 'inputMediaDocument';
+  id: InputDocument;
+  ttl_seconds?: number;
+}
+export interface inputMediaVenue {
+  _: 'inputMediaVenue';
+  geo_point: InputGeoPoint;
+  title: string;
+  address: string;
+  provider?: string;
+  venue_id?: string;
+  venue_type?: string;
+}
+export interface inputMediaPhotoExternal {
+  _: 'inputMediaPhotoExternal';
+  url: string;
+  ttl_seconds?: number;
+}
+export interface inputMediaDocumentExternal {
+  _: 'inputMediaDocumentExternal';
+  url: string;
+  ttl_seconds?: number;
+}
+export interface inputMediaGame {
+  _: 'inputMediaGame';
+  id: InputGame;
+}
+export interface inputMediaInvoice {
+  _: 'inputMediaGame';
+  title: string;
+  description: string;
+  photo?: InputWebDocument;
+  invoice: Invoice;
+  payload: Uint8Array;
+  provider: string;
+  provider_data: DataJSON;
+  start_param: string;
+}
+export interface inputMediaGeoLive {
+  _: 'inputMediaGeoLive';
+  stopped: boolean;
+  geo_point: InputGeoPoint;
+  heading?: number;
+  period?: number;
+  proximity_notification_radius?: number;
+}
+export interface inputMediaPoll {
+  _: 'inputMediaPoll';
+  poll: Poll;
+  correct_answers?: Uint8Array[];
+  solution?: string;
+  solution_entities?: MessageEntity[];
+}
+export interface inputMediaDice {
+  _: 'inputMediaDice';
+  emoticon: string;
+}
+
+// _-_-_-_-_-_-_- InputFile
+// Defines a file uploaded by the client.
+export type InputFile = inputFile | inputFileBig;
+export interface inputFile {
+  _: 'inputFile';
+  id: string;
+  parts: number;
+  name: string;
+  md5_checksum: string;
+}
+export interface inputFileBig {
+  _: 'inputFileBig';
+  id: string;
+  parts: number;
+  name: string;
+}
+
+// _-_-_-_-_-_-_- InputPhoto
+// Defines a photo for further interaction.
+export type InputPhoto = inputPhotoEmpty | inputPhoto;
+export interface inputPhotoEmpty {
+  _: 'inputPhotoEmpty';
+}
+export interface inputPhoto {
+  _: 'inputPhoto';
+  id: string;
+  access_hash: string;
+  file_reference: Uint8Array;
+}
+
+// _-_-_-_-_-_-_- InputGeoPoint
+// Defines a GeoPoint.
+export type InputGeoPoint = inputGeoPointEmpty | inputGeoPoint;
+export interface inputGeoPointEmpty {
+  _: 'inputGeoPointEmpty';
+}
+export interface inputGeoPoint {
+  _: 'inputGeoPoint';
+  lat: number;
+  long: number;
+  accuracy_radius?: number;
+}
+
+// _-_-_-_-_-_-_- InputDocument
+// Defines a photo for further interaction.
+export type InputDocument = inputDocumentEmpty | inputDocument;
+export interface inputDocumentEmpty {
+  _: 'inputDocumentEmpty';
+}
+export interface inputDocument {
+  _: 'inputDocument';
+  id: string;
+  access_hash: string;
+  file_reference: Uint8Array;
+}
+
+// _-_-_-_-_-_-_- InputUser
+// Defines a user for subsequent interaction.
+export type InputUser = inputUser | inputUserSelf;
+export interface inputUserSelf {
+  _: 'inputUserSelf';
+}
+export interface inputUser {
+  _: 'inputUser';
+  user_id: number;
+  access_hash: string;
+}
+
+// _-_-_-_-_-_-_- InputStickerSet
+// Represents a stickerset
+export type InputStickerSet =
+  | inputStickerSetEmpty
+  | inputStickerSetID
+  | inputStickerSetShortName
+  | inputStickerSetAnimatedEmoji
+  | inputStickerSetDice;
+export interface inputStickerSetEmpty {
+  _: 'inputStickerSetEmpty';
+}
+export interface inputStickerSetID {
+  _: 'inputStickerSetID';
+  id: string;
+  access_hash: string;
+}
+export interface inputStickerSetShortName {
+  _: 'inputStickerSetShortName';
+  short_name: string;
+}
+export interface inputStickerSetAnimatedEmoji {
+  _: 'inputStickerSetAnimatedEmoji';
+}
+export interface inputStickerSetDice {
+  _: 'inputStickerSetDice';
+  emoticon: string;
+}
+
+// _-_-_-_-_-_-_- InputGame
+// A game to send
+export type InputGame = inputGameID | inputGameShortName;
+export interface inputGameID {
+  _: 'inputGameID';
+  id: string;
+  access_hash: string;
+}
+export interface inputGameShortName {
+  _: 'inputGameShortName';
+  bot_id: InputUser;
+  short_name: string;
+}
+
+// _-_-_-_-_-_-_- InputWebDocument
+// Specifies a document that will have to be downloaded from the URL by the telegram servers
+export type InputWebDocument = inputWebDocument;
+export interface inputWebDocument {
+  _: 'inputWebDocument';
+  url: string;
+  size: number;
+  mime_type: string;
+  attributes: DocumentAttribute[];
+}
+
+// _-_-_-_-_-_-_- DocumentAttribute
+// Various possible attributes of a document (used to define if it's a sticker, a GIF, a video, a mask sticker, an image, an audio, and so on)
+export type DocumentAttribute =
+  | documentAttributeImageSize
+  | documentAttributeAnimated
+  | documentAttributeSticker
+  | documentAttributeVideo
+  | documentAttributeAudio
+  | documentAttributeFilename
+  | documentAttributeHasStickers;
+export interface documentAttributeImageSize {
+  _: 'documentAttributeImageSize';
+  w: number;
+  h: number;
+}
+export interface documentAttributeAnimated {
+  _: 'documentAttributeAnimated';
+}
+export interface documentAttributeSticker {
+  _: 'documentAttributeSticker';
+  mask?: boolean;
+  alt: string;
+  stickerset: InputStickerSet;
+  mask_coords?: MaskCoords;
+}
+export interface documentAttributeVideo {
+  _: 'documentAttributeVideo';
+  round_message?: boolean;
+  supports_streaming?: boolean;
+  duration: number;
+  w: number;
+  h: number;
+}
+export interface documentAttributeAudio {
+  _: 'documentAttributeAudio';
+  voice?: boolean;
+  duration: number;
+  title?: string;
+  performer?: string;
+  waveform?: Uint8Array;
+}
+export interface documentAttributeFilename {
+  _: 'documentAttributeFilename';
+  file_name: string;
+}
+export interface documentAttributeHasStickers {
+  _: 'documentAttributeHasStickers';
+}
+
+export type MaskCoords = maskCoords;
+export interface maskCoords {
+  _: 'maskCoords';
+  n: number;
+  x: number;
+  y: number;
+  zoom: number;
+}
+
+// _-_-_-_-_-_-_- Invoice
+// Invoice
+export type Invoice = invoice;
+export interface invoice {
+  _: 'invoice';
+  test?: boolean;
+  name_requested?: boolean;
+  phone_requested?: boolean;
+  email_requested?: boolean;
+  shipping_address_requested?: boolean;
+  flexible?: boolean;
+  phone_to_provide?: boolean;
+  email_to_provide?: boolean;
+  currency: string;
+  prices: LabeledPrice[];
+}
+
+// _-_-_-_-_-_-_- LabeledPrice
+// Labeled pricetag
+export type LabeledPrice = labeledPrice;
+export interface labeledPrice {
+  _: 'labeledPrice';
+  label: string;
+  amount: string;
+}
+
+// _-_-_-_-_-_-_- DataJSON
+// Represent a JSON-encoded object
+export type DataJSON = dataJSON;
+export interface dataJSON {
+  _: 'dataJSON';
+  data: string;
+}
+
+// _-_-_-_-_-_-_- Poll
+// Indicates a poll message
+export type Poll = poll;
+export interface poll {
+  _: 'poll';
+  id: string;
+  closed?: boolean;
+  public_voters?: boolean;
+  multiple_choice?: boolean;
+  quiz?: boolean;
+  question: string;
+  answers: PollAnswer[];
+  close_period?: number;
+  close_date?: number;
+}
+
+// _-_-_-_-_-_-_- PollAnswer
+// Indicates a possible answer to a poll.
+export type PollAnswer = pollAnswer;
+export interface pollAnswer {
+  _: 'pollAnswer';
+  text: string;
+  option: Uint8Array;
+}
+// _-_-_-_-_-_-_- MessageEntity
+// Message entities, representing styled text in a message
+export type MessageEntity =
+  | messageEntityUknown
+  | messageEntityMention
+  | messageEntityHashtag
+  | messageEntityBotCommand
+  | messageEntityUrl
+  | messageEntityEmail
+  | messageEntityBold
+  | messageEntityItalic
+  | messageEntityCode
+  | messageEntityPre
+  | messageEntityTextUrl
+  | messageEntityMentionName
+  | inputMessageEntityMentionName
+  | messageEntityPhone
+  | messageEntityCashtag
+  | messageEntityUnderline
+  | messageEntityStrike
+  | messageEntityBlockquote
+  | messageEntityBankCard;
+
+export interface messageEntityUknown {
+  _: 'messageEntityUknown';
+  offset: number;
+  length: number;
+}
+export interface messageEntityMention {
+  _: 'messageEntityMention';
+  offset: number;
+  length: number;
+}
+export interface messageEntityHashtag {
+  _: 'messageEntityHashtag';
+  offset: number;
+  length: number;
+}
+export interface messageEntityBotCommand {
+  _: 'messageEntityBotCommand';
+  offset: number;
+  length: number;
+}
+export interface messageEntityUrl {
+  _: 'messageEntityUrl';
+  offset: number;
+  length: number;
+}
+export interface messageEntityEmail {
+  _: 'messageEntityEmail';
+  offset: number;
+  length: number;
+}
+export interface messageEntityBold {
+  _: 'messageEntityBold';
+  offset: number;
+  length: number;
+}
+export interface messageEntityItalic {
+  _: 'messageEntityItalic';
+  offset: number;
+  length: number;
+}
+export interface messageEntityCode {
+  _: 'messageEntityCode';
+  offset: number;
+  length: number;
+}
+export interface messageEntityPre {
+  _: 'messageEntityPre';
+  offset: number;
+  length: number;
+  language: string;
+}
+export interface messageEntityTextUrl {
+  _: 'messageEntityTextUrl';
+  offset: number;
+  length: number;
+  url: string;
+}
+export interface messageEntityMentionName {
+  _: 'messageEntityMentionName';
+  offset: number;
+  length: number;
+  user_id: number;
+}
+export interface inputMessageEntityMentionName {
+  _: 'inputMessageEntityMentionName';
+  offset: number;
+  length: number;
+  user_id: InputUser;
+}
+export interface messageEntityPhone {
+  _: 'messageEntityPhone';
+  offset: number;
+  length: number;
+}
+export interface messageEntityCashtag {
+  _: 'messageEntityCashtag';
+  offset: number;
+  length: number;
+}
+export interface messageEntityUnderline {
+  _: 'messageEntityUnderline';
+  offset: number;
+  length: number;
+}
+export interface messageEntityStrike {
+  _: 'messageEntityStrike';
+  offset: number;
+  length: number;
+}
+export interface messageEntityBlockquote {
+  _: 'messageEntityBlockquote';
+  offset: number;
+  length: number;
+}
+export interface messageEntityBankCard {
+  _: 'messageEntityBankCard';
+  offset: number;
+  length: number;
+}
+
+// _-_-_-_-_-_-_-
+export interface ResolvedPeer {
+  _: 'contacts.resolvedPeer';
+  peer: Peer;
+  chats: Chat[];
+  users: User[];
+}
+
 interface PeerSettings {
   _: 'peerSettings';
   flags: number;
@@ -482,7 +971,6 @@ export interface UserFull {
 }
 
 // _-_-_-_-_-_-_- Crypto
-
 export interface password {
   _: 'account.password';
   flags: number;
@@ -503,14 +991,16 @@ interface algo {
   g: number;
   p: Uint8Array;
 }
-
 interface secureAlgo {
   // _: 'securePasswordKdfAlgoPBKDF2HMACSHA512iter100000',
   salt: Uint8Array;
 }
 
-// _-_-_-_-_-_-_-
+// _-_-_-_-_-_-_- Updates
+// Object which is perceived by the client without a call on its part when an event occurs.
+// export type Updates = Update |
 
+// _-_-_-_-_-_-_-
 export type MessageEvent =
   | '*'
   | 'text'
@@ -543,4 +1033,4 @@ export type MessageEvent =
   | 'successfulPayment'
   | 'passportData';
 
-export type Events = 'update' | 'message' | 'login';
+export type Events = 'updates' | 'message' | 'login';

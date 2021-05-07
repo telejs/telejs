@@ -35,6 +35,7 @@ export default class Client extends Method {
     for (const event of events) {
       if (!this.events.has(event)) {
         this.events.set(event, callback);
+        this.proto.updates.on(event, callback)
       }
     }
   }
@@ -59,7 +60,11 @@ export default class Client extends Method {
     const callback = this.events.has(eventName)
       ? this.events.get(eventName)
       : () => {};
-    callback?.apply(null, data);
+    try {
+      callback?.bind(null,...data)();
+    } catch (err) {
+      this.event('error', err);
+    }
   }
 
   protected async login(loginType?: string): Promise<void> {
@@ -95,7 +100,14 @@ export default class Client extends Method {
         salt2: current_algo.salt2,
         password: password,
       });
-      authResult = await this.checkPassword({ srp_id, A, M1 });
+      try {
+        authResult = await this.checkPassword({ srp_id, A, M1 });
+      } catch (err) {
+        if (err.error_message == 'PASSWORD_HASH_INVALID') {
+          console.log('Password invalid retrying');
+          return this.login('2fa');
+        }
+      }
       this.event('login', authResult);
     }
   }
@@ -126,7 +138,7 @@ export default class Client extends Method {
       }
     }
     // clearTimeout(this.loginTimeOut);
-    this.getUpdate();
+    // this.getUpdate();
   }
 
   private async handleDiffence(difference: Difference): Promise<void> {

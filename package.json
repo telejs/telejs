@@ -49,11 +49,14 @@
   "dependencies": {
     "@mtproto/core": "^5.3.0",
     "dotenv": "^8.2.0",
-    "readline-sync": "^1.4.10"
+    "image-size": "^1.0.0",
+    "readline-sync": "^1.4.10",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.40",
     "@types/readline-sync": "^1.4.3",
+    "@types/sqlite3": "^3.1.7",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.24.0",
