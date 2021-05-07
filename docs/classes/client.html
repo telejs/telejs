@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Client | telejs - v0.2.2</title>
-	<meta name="description" content="Documentation for telejs - v0.2.2">
+	<title>Client | telejs - v0.4.0</title>
+	<meta name="description" content="Documentation for telejs - v0.4.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">:root {
   --color-background: #fdfdfd;
@@ -2674,7 +2674,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">telejs - v0.2.2</a></strong>
+					<strong><a href="../index.html">telejs - v0.4.0</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2711,6 +2711,9 @@ img {
 				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a href="client.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="client.html#database" class="tsd-kind-icon">database</a>
+				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="client.html#events" class="tsd-kind-icon">events</a>
 				</li>
@@ -2720,10 +2723,13 @@ img {
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#options" class="tsd-kind-icon">options</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="client.html#proto" class="tsd-kind-icon">proto</a>
+				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a href="client.html#update" class="tsd-kind-icon">update</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#callapi" class="tsd-kind-icon">call<wbr>Api</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -2736,7 +2742,13 @@ img {
 					<a href="client.html#event" class="tsd-kind-icon">event</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#getchats" class="tsd-kind-icon">get<wbr>Chats</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#getdifference" class="tsd-kind-icon">get<wbr>Difference</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#getfullchat" class="tsd-kind-icon">get<wbr>Full<wbr>Chat</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#getfulluser" class="tsd-kind-icon">get<wbr>Full<wbr>User</a>
@@ -2745,10 +2757,16 @@ img {
 					<a href="client.html#getpassword" class="tsd-kind-icon">get<wbr>Password</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#getpeertype" class="tsd-kind-icon">get<wbr>Peer<wbr>Type</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#getstate" class="tsd-kind-icon">get<wbr>State</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="client.html#getupdate" class="tsd-kind-icon">get<wbr>Update</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#getusers" class="tsd-kind-icon">get<wbr>Users</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="client.html#handlediffence" class="tsd-kind-icon">handle<wbr>Diffence</a>
@@ -2759,14 +2777,53 @@ img {
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="client.html#on" class="tsd-kind-icon">on</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="client.html#randomid" class="tsd-kind-icon">random<wbr>Id</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#resolvepeer" class="tsd-kind-icon">resolve<wbr>Peer</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#resolveusername" class="tsd-kind-icon">resolve<wbr>Username</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#savefilepart" class="tsd-kind-icon">save<wbr>File<wbr>Part</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#sendcode" class="tsd-kind-icon">send<wbr>Code</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendcontact" class="tsd-kind-icon">send<wbr>Contact</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#senddice" class="tsd-kind-icon">send<wbr>Dice</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#senddocument" class="tsd-kind-icon">send<wbr>Document</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendgeopoint" class="tsd-kind-icon">send<wbr>Geo<wbr>Point</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendmedia" class="tsd-kind-icon">send<wbr>Media</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendphoto" class="tsd-kind-icon">send<wbr>Photo</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#sendvenue" class="tsd-kind-icon">send<wbr>Venue</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="client.html#signin" class="tsd-kind-icon">sign<wbr>In</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="client.html#start" class="tsd-kind-icon">start</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="client.html#uploadfile" class="tsd-kind-icon">upload<wbr>File</a>
 				</li>
 			</ul>
 		</li>
@@ -2806,30 +2863,49 @@ img {
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="client.html#database" class="tsd-kind-icon">database</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="client.html#events" class="tsd-kind-icon">events</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="client.html#loop" class="tsd-kind-icon">loop</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#options" class="tsd-kind-icon">options</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="client.html#proto" class="tsd-kind-icon">proto</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="client.html#update" class="tsd-kind-icon">update</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="client.html#callapi" class="tsd-kind-icon">call<wbr>Api</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#callapi" class="tsd-kind-icon">call<wbr>Api</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="client.html#catch" class="tsd-kind-icon">catch</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#checkpassword" class="tsd-kind-icon">check<wbr>Password</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="client.html#event" class="tsd-kind-icon">event</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getchats" class="tsd-kind-icon">get<wbr>Chats</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getdifference" class="tsd-kind-icon">get<wbr>Difference</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getfullchat" class="tsd-kind-icon">get<wbr>Full<wbr>Chat</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getfulluser" class="tsd-kind-icon">get<wbr>Full<wbr>User</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getpassword" class="tsd-kind-icon">get<wbr>Password</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getpeertype" class="tsd-kind-icon">get<wbr>Peer<wbr>Type</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="client.html#getupdate" class="tsd-kind-icon">get<wbr>Update</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#getusers" class="tsd-kind-icon">get<wbr>Users</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="client.html#handlediffence" class="tsd-kind-icon">handle<wbr>Diffence</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="client.html#login" class="tsd-kind-icon">login</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="client.html#on" class="tsd-kind-icon">on</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="client.html#randomid" class="tsd-kind-icon">random<wbr>Id</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#resolvepeer" class="tsd-kind-icon">resolve<wbr>Peer</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#resolveusername" class="tsd-kind-icon">resolve<wbr>Username</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#savefilepart" class="tsd-kind-icon">save<wbr>File<wbr>Part</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendcode" class="tsd-kind-icon">send<wbr>Code</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendcontact" class="tsd-kind-icon">send<wbr>Contact</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#senddice" class="tsd-kind-icon">send<wbr>Dice</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#senddocument" class="tsd-kind-icon">send<wbr>Document</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendgeopoint" class="tsd-kind-icon">send<wbr>Geo<wbr>Point</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendmedia" class="tsd-kind-icon">send<wbr>Media</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendphoto" class="tsd-kind-icon">send<wbr>Photo</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sendvenue" class="tsd-kind-icon">send<wbr>Venue</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#signin" class="tsd-kind-icon">sign<wbr>In</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="client.html#start" class="tsd-kind-icon">start</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#uploadfile" class="tsd-kind-icon">upload<wbr>File</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2848,7 +2924,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Overrides Method.constructor</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L12">Client.ts:12</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L12">Client.ts:12</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2867,13 +2943,24 @@ img {
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="database" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> database</h3>
+				<div class="tsd-signature tsd-kind-icon">database<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Storage</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from Method.database</p>
+					<ul>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Base.ts#L12">Base.ts:12</a></li>
+					</ul>
+				</aside>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="events" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> events</h3>
 				<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L11">Client.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L11">Client.ts:11</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2883,7 +2970,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">loop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L10">Client.ts:10</a></li>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L10">Client.ts:10</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2894,7 +2981,7 @@ img {
 				<aside class="tsd-sources">
 					<p>Inherited from Method.options</p>
 					<ul>
-						<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Base.ts#L10">Base.ts:10</a></li>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Base.ts#L11">Base.ts:11</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2909,23 +2996,34 @@ img {
 					</ul>
 				</div>
 			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="proto" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> proto</h3>
+				<div class="tsd-signature tsd-kind-icon">proto<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MTProto</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from Method.proto</p>
+					<ul>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Base.ts#L10">Base.ts:10</a></li>
+					</ul>
+				</aside>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 				<a name="update" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagProtected">Protected</span> update</h3>
 				<div class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">:</span> <a href="../modules/types.html#updates" class="tsd-signature-type" data-tsd-kind="Type alias">updates</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L12">Client.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L12">Client.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="callapi" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>Api</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<h3>call<wbr>Api</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<li class="tsd-signature tsd-kind-icon">call<wbr>Api<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
@@ -2933,7 +3031,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.callApi</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Base.ts#L29">Base.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Base.ts#L38">Base.ts:38</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2962,7 +3060,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L24">Client.ts:24</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L24">Client.ts:24</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2986,7 +3084,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.checkPassword</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L70">Method.ts:70</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L83">Method.ts:83</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3020,7 +3118,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L58">Client.ts:58</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L59">Client.ts:59</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3037,6 +3135,36 @@ img {
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="getchats" class="tsd-anchor"></a>
+				<h3>get<wbr>Chats</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Chats<span class="tsd-signature-symbol">(</span>ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.getChats</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L358">Method.ts:358</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>messages.getChats
+								Returns chat basic info on their IDs.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ids: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="getdifference" class="tsd-anchor"></a>
 				<h3>get<wbr>Difference</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -3047,7 +3175,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.getDifference</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L51">Method.ts:51</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L64">Method.ts:64</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3057,6 +3185,36 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#differenceempty" class="tsd-signature-type" data-tsd-kind="Type alias">DifferenceEmpty</a><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#difference" class="tsd-signature-type" data-tsd-kind="Type alias">Difference</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="getfullchat" class="tsd-anchor"></a>
+				<h3>get<wbr>Full<wbr>Chat</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Full<wbr>Chat<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.getFullChat</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L367">Method.ts:367</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>messages.getFullChat
+								Returns full chat info according to its ID.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>id: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3071,7 +3229,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.getFullUser</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L21">Method.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L379">Method.ts:379</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3095,10 +3253,34 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.getPassword</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L66">Method.ts:66</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L79">Method.ts:79</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.password.html" class="tsd-signature-type" data-tsd-kind="Interface">password</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="getpeertype" class="tsd-anchor"></a>
+				<h3>get<wbr>Peer<wbr>Type</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Peer<wbr>Type<span class="tsd-signature-symbol">(</span>peerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.getPeerType</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L340">Method.ts:340</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>peerId: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3113,7 +3295,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.getState</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L47">Method.ts:47</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L60">Method.ts:60</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#state-1" class="tsd-signature-type" data-tsd-kind="Type alias">State</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -3130,10 +3312,40 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L138">Client.ts:138</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L150">Client.ts:150</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="getusers" class="tsd-anchor"></a>
+				<h3>get<wbr>Users</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Users<span class="tsd-signature-symbol">(</span>ids<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#inputuser-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputUser</a><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputuser-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputUser</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.getUsers</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L374">Method.ts:374</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>users.getUsers
+								Returns basic user info according to their identifiers.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ids: <a href="../modules/types.html#inputuser-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputUser</a><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputuser-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputUser</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3147,7 +3359,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L132">Client.ts:132</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L144">Client.ts:144</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3170,7 +3382,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L65">Client.ts:65</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L70">Client.ts:70</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3193,7 +3405,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L28">Client.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L28">Client.ts:28</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3227,6 +3439,111 @@ img {
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="randomid" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> random<wbr>Id</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<li class="tsd-signature tsd-kind-icon">random<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.randomId</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Base.ts#L69">Base.ts:69</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="resolvepeer" class="tsd-anchor"></a>
+				<h3>resolve<wbr>Peer</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">resolve<wbr>Peer<span class="tsd-signature-symbol">(</span>peerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.resolvePeer</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L316">Method.ts:316</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>peerId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="resolveusername" class="tsd-anchor"></a>
+				<h3>resolve<wbr>Username</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">resolve<wbr>Username<span class="tsd-signature-symbol">(</span>username<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.resolvedpeer.html" class="tsd-signature-type" data-tsd-kind="Interface">ResolvedPeer</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.resolveUsername</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L311">Method.ts:311</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>contacts.resolveUsername
+								Resolve a @username to get peer info</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>username: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>@username to resolve</p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.resolvedpeer.html" class="tsd-signature-type" data-tsd-kind="Interface">ResolvedPeer</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="savefilepart" class="tsd-anchor"></a>
+				<h3>save<wbr>File<wbr>Part</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">save<wbr>File<wbr>Part<span class="tsd-signature-symbol">(</span>fileId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, filePart<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bytes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.saveFilePart</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L424">Method.ts:424</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>fileId: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5>filePart: <span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>bytes: <span class="tsd-signature-type">Uint8Array</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="sendcode" class="tsd-anchor"></a>
 				<h3>send<wbr>Code</h3>
@@ -3238,7 +3555,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.sendCode</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L14">Method.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L41">Method.ts:41</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3248,6 +3565,359 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.phonecode.html" class="tsd-signature-type" data-tsd-kind="Interface">PhoneCode</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendcontact" class="tsd-anchor"></a>
+				<h3>send<wbr>Contact</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Contact<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, contact<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>first_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>last_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>phone_number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>vcard<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span>, caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendContact</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L204">Method.ts:204</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendContact
+								Send a contact to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>contact: <span class="tsd-signature-symbol">{ </span>first_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>last_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>phone_number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>vcard<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>first_<wbr>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>last_<wbr>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>phone_<wbr>number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>vcard<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> caption: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="senddice" class="tsd-anchor"></a>
+				<h3>send<wbr>Dice</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Dice<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, emoticon<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendDice</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L290">Method.ts:290</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendDice
+								Send a game to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>emoticon: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="senddocument" class="tsd-anchor"></a>
+				<h3>send<wbr>Document</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Document<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, document<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FileOptions</span>, caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendDocument</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L228">Method.ts:228</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendDocument
+								Send a document to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>document: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FileOptions</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> caption: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendgeopoint" class="tsd-anchor"></a>
+				<h3>send<wbr>Geo<wbr>Point</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Geo<wbr>Point<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, coordinate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>accuracy_radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>lat<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span>, caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendGeoPoint</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L182">Method.ts:182</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendGeoPoint
+								Send a geopoint to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>coordinate: <span class="tsd-signature-symbol">{ </span>accuracy_radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>lat<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>accuracy_<wbr>radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>lat<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> caption: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendmedia" class="tsd-anchor"></a>
+				<h3>send<wbr>Media</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Media<span class="tsd-signature-symbol">(</span>peer<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a>, media<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a>, message<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendMedia</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L128">Method.ts:128</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>messages.sendMedia
+								Send a media</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>peer: <a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a></h5>
+							</li>
+							<li>
+								<h5>media: <a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> message: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendmessage" class="tsd-anchor"></a>
+				<h3>send<wbr>Message</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Message<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Message<span class="tsd-signature-symbol">(</span>peer<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendMessage</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L97">Method.ts:97</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>messages.sendMessage
+								Sends a message to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>message: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendMessage</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L102">Method.ts:102</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>peer: <a href="../modules/types.html#inputpeer" class="tsd-signature-type" data-tsd-kind="Type alias">InputPeer</a></h5>
+							</li>
+							<li>
+								<h5>message: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendphoto" class="tsd-anchor"></a>
+				<h3>send<wbr>Photo</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Photo<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, photo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FileOptions</span>, caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendPhoto</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L146">Method.ts:146</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendPhoto
+								Send a photo to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>photo: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#inputmedia" class="tsd-signature-type" data-tsd-kind="Type alias">InputMedia</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FileOptions</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> caption: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="sendvenue" class="tsd-anchor"></a>
+				<h3>send<wbr>Venue</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">send<wbr>Venue<span class="tsd-signature-symbol">(</span>chatId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, venue<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.inputmediavenue.html" class="tsd-signature-type" data-tsd-kind="Interface">inputMediaVenue</a>, caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">MessageOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.sendVenue</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L271">Method.ts:271</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>sendVenue
+								Send a venue to a chat</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>chatId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li>
+								<h5>venue: <a href="../interfaces/types.inputmediavenue.html" class="tsd-signature-type" data-tsd-kind="Interface">inputMediaVenue</a></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> caption: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">MessageOptions</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3262,7 +3932,7 @@ img {
 						<aside class="tsd-sources">
 							<p>Inherited from Method.signIn</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Method.ts#L35">Method.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L48">Method.ts:48</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3291,10 +3961,37 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/telejs/telejs/blob/560e23c/src/Client.ts#L103">Client.ts:103</a></li>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Client.ts#L115">Client.ts:115</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="uploadfile" class="tsd-anchor"></a>
+				<h3>upload<wbr>File</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">upload<wbr>File<span class="tsd-signature-symbol">(</span>file<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span>, fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#inputfile-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputFile</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from Method.uploadFile</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/telejs/telejs/blob/fe9ec23/src/Method.ts#L391">Method.ts:391</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>file: <span class="tsd-signature-type">Buffer</span></h5>
+							</li>
+							<li>
+								<h5>fileName: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#inputfile-1" class="tsd-signature-type" data-tsd-kind="Type alias">InputFile</a><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
