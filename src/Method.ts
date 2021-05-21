@@ -16,7 +16,7 @@ import {
   State,
   UserFull,
 } from './types';
-import { getMimeType, logger, getAttributeFile } from './util';
+import { getMimeType, logger, getAttributeFile, getInputPeer } from './util';
 import * as crypto from 'crypto';
 import { readFileSync } from 'fs';
 import { basename } from 'path';
@@ -321,9 +321,16 @@ export default class Method extends Base {
         const peer = await this.database.getPeerByUsername(peerId);
         return peer;
       } catch (err) {
-        await this.resolveUsername(peerId);
-        const peer = await this.database.getPeerByUsername(peerId);
-        return peer;
+        const resolvedPeer = await this.resolveUsername(peerId);
+        const { peer, chats, users } = resolvedPeer;
+        if (peer._ == 'peerUser' || peer._ == 'peerChannel') {
+          return getInputPeer(
+            users[0]?.id as number,
+            users[0]?.access_hash as string,
+            peer._
+          );
+        }
+        return getInputPeer(chats[0]?.id as number, '0', peer._);
       }
     }
     if (typeof peerId == 'number') {
