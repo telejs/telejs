@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
+    "prepublishOnly":"npm run build",
     "docs:clean": "rimraf ./docs/pages",
     "docs:build": "npm run docs:clean && typedoc src/index.ts",
     "docs:serve": "docsify serve docs",
