@@ -1,11 +1,11 @@
 {
   "name": "teledotjs",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Telegram MTProto API Client Wrapper Framework in Javascript ",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
-    "prepublishOnly":"npm run build",
+    "prepublishOnly": "npm run build",
     "docs:clean": "rimraf ./docs/pages",
     "docs:build": "npm run docs:clean && typedoc src/index.ts",
     "docs:serve": "docsify serve docs",
