@@ -18,8 +18,7 @@
     "excludeExternals": true,
     "includeVersion": true,
     "name": "telejs",
-    "out": "docs/",
-    "readme": "README.md",
+    "out": "docs/pages",
     "theme": "minimal"
   },
   "include": ["src/"]

@@ -1,3 +1,5 @@
+telejs - v0.4.2 / [Exports](modules.md)
+
 # Tele.js
 
 > Telegram MTProto API Client Wrapper Framework in Javascript
